@@ -41,7 +41,7 @@ public class PetRepository<T extends IRepository<T>> {
 //    }
 
     // Добавление зверюшки
-    public T addNewPet(String name, LocalDate birthday, LocalDate deathDate, ArrayList commands) {
+    public T addNewPet(String name, LocalDate birthday, LocalDate deathDate, ArrayList<Pet> commands) {
         Pet pet = petBuilder.build(name, birthday, deathDate, commands);
         pets.add((T)pet);
         return (T) pet;

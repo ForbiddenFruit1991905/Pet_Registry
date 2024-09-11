@@ -9,6 +9,7 @@ public class Horse extends Pet implements Packable, Petable {
     }
 
     public Horse(String name) {
+        super(name);
     }
 
     @Override

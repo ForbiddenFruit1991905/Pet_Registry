@@ -9,6 +9,7 @@ public class Camel extends Pet implements Packable {
     }
 
     public Camel(String name) {
+        super(name);
     }
 
     @Override

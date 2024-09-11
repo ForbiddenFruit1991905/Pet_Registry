@@ -9,6 +9,7 @@ public class Donkey extends Pet implements Packable {
     }
 
     public Donkey(String name) {
+        super(name);
     }
 
     @Override

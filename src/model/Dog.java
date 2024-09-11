@@ -9,7 +9,7 @@ public class Dog extends Pet implements Petable {
     }
 
     public Dog(String name) {
-        super();
+        super(name);
     }
 
     @Override

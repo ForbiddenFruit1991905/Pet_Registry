@@ -1,5 +1,7 @@
 package model;
 
+import model.services.IRepository;
+
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
@@ -7,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class Pet {
+public class Pet implements IRepository {
     protected static int id;
     public String name;
     public LocalDate birthday;
@@ -24,9 +26,7 @@ public class Pet {
     public Pet(String name) {
     }
 
-    public Pet() {
 
-    }
 
     public LocalDate getDeathDate() {
         return deathDate;
@@ -36,7 +36,12 @@ public class Pet {
         this.id = id;
     }
 
-    public static int getId() {
+    @Override
+    public List getAll() {
+        return List.of();
+    }
+
+    public int getId() {
         return id;
     }
 
@@ -52,6 +57,12 @@ public class Pet {
     public ArrayList<Pet> getCommands() {
         return commands;
     }
+
+    @Override
+    public void addCommand(Object command) {
+
+    }
+
     //TODO 1
     // что-то на непонятном
     public void addCommand(Pet command){
@@ -81,6 +92,31 @@ public class Pet {
         return list.toString();
     }
 
+    @Override
+    public Object getById(int id) {
+        return null;
+    }
+
+    @Override
+    public Object addNewPet(Object pet) {
+        return null;
+    }
+
+    @Override
+    public Object deleteById(int idPet) {
+        return null;
+    }
+
+    @Override
+    public String getPetList() {
+        return "";
+    }
+
+    @Override
+    public Iterator iterator() {
+        return null;
+    }
+
 
     @Override
     public String toString() {
@@ -103,17 +139,32 @@ public class Pet {
         return getPetAge();
     }
 
-
-    public Pet addNewPet(Pet pet) {
-        return pet;
+    @Override
+    public List getAllPet() {
+        return List.of();
     }
 
+    @Override
     public Pet findById(int idPet) {
         return null;
     }
 
-    public Pet deleteById(int count_id) {
-        return null;
+    @Override
+    public int compareTo(Object o) {
+        return 0;
     }
+
+//    @Override
+//    public Pet addNewPet(Pet pet) {
+//        return pet;
+//    }
+//    @Override
+//    public Pet findById(int idPet) {
+//        return null;
+//    }
+//    @Override
+//    public Pet deleteById(int count_id) {
+//        return null;
+//    }
 
 }

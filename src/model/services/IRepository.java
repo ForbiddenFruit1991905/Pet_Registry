@@ -12,7 +12,7 @@ public interface IRepository<T> extends Comparable{
     String getName();
     int getAge();
     List<T> getAllPet();
-    T findById(int idPet);
+    Pet findById(int idPet);
 
     ArrayList<T> getCommands();
     void addCommand(T command);
