@@ -1,11 +1,8 @@
-import model.Pet;
-import model.services.IRepository;
-import model.services.PetRepository;
+
 import view.ConsoleUI;
 import view.View;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
+
 
 public class Main {
     public static void main(String[] args) {
@@ -13,7 +10,7 @@ public class Main {
         view.start();
 
 
-
+          // очередной экспиремент TODO удалить потом
 //        PetRepository repository = new PetRepository();
 //        Pet newPet = new Pet("Мурзик", LocalDate.of(2020, 5, 15), null, new ArrayList<>());
 //        repository.addPet(newPet); // Добавление объекта newPet в репозиторий

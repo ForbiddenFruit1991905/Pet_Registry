@@ -24,13 +24,13 @@ public class Presenter {
     }
 
     //    Поиск записи по ID
-    public Pet findById(int idPet) {
-        return (Pet) petRepository.findById(idPet);
+    public Pet findById(int count_id) {
+        return (Pet) petRepository.findById(count_id);
     }
 
     //    Удаление записи
-    public void deleteById(int idPet) {
-        petRepository.deleteById(idPet);
+    public void deleteById(int count_id) {
+        petRepository.deleteById(count_id);
     }
 
     //    Список всех записей животных в реестре

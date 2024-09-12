@@ -4,7 +4,7 @@ import view.ConsoleUI;
 
 public class DeleteById extends Commands{
     public DeleteById(ConsoleUI consoleUI) {
-        super("удалить запись о дивотном из реестра по Id", consoleUI);
+        super("удалить запись о животном из реестра по Id", consoleUI);
     }
 
     @Override

@@ -10,13 +10,14 @@ import java.util.Iterator;
 import java.util.List;
 
 public class Pet implements IRepository {
-    protected static int id;
-    public String name;
-    public LocalDate birthday;
+    private int id;
+    private String name;
+    private LocalDate birthday;
     private LocalDate deathDate;
-    public ArrayList<Pet> commands;
+    private ArrayList<Pet> commands;
 
-    public Pet(String name, LocalDate birthday, LocalDate deathDate, ArrayList<Pet> commands) {
+    public Pet(int id, String name, LocalDate birthday, LocalDate deathDate, ArrayList<Pet> commands) {
+        this.id = id;
         this.name = name;
         this.birthday = birthday;
         this.deathDate = deathDate;
@@ -26,15 +27,16 @@ public class Pet implements IRepository {
     public Pet(String name) {
     }
 
-
+//    public Pet(String name, LocalDate birthday, LocalDate deathDate, ArrayList<Pet> commands) {
+//    }
 
     public LocalDate getDeathDate() {
         return deathDate;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+//    public void setId(int id) {
+//        this.id = id;
+//    }
 
     @Override
     public List getAll() {
@@ -58,6 +60,7 @@ public class Pet implements IRepository {
         return commands;
     }
 
+    //TODO пустой метод
     @Override
     public void addCommand(Object command) {
 
@@ -77,6 +80,7 @@ public class Pet implements IRepository {
 //        return false;
 //    }
 
+//TODO доработать
     public String getInfo() {
         StringBuilder list = new StringBuilder();
         list.append("Обучен(а) следующим командам: ");
@@ -109,7 +113,7 @@ public class Pet implements IRepository {
 
     @Override
     public String getPetList() {
-        return "";
+        return List.of().toString();
     }
 
     @Override
@@ -120,7 +124,7 @@ public class Pet implements IRepository {
 
     @Override
     public String toString() {
-        return String.format("ID: "+ getId(), "name: " + getName(), "birthday:" + getBirthday() + getInfo());
+        return String.format("ID: " + getId() + "\n" + "name: " + getName() + "\n" + "birthday:" + getBirthday() /*+ getInfo()*/);
     }
 
     public int getPetAge(){
@@ -153,18 +157,5 @@ public class Pet implements IRepository {
     public int compareTo(Object o) {
         return 0;
     }
-
-//    @Override
-//    public Pet addNewPet(Pet pet) {
-//        return pet;
-//    }
-//    @Override
-//    public Pet findById(int idPet) {
-//        return null;
-//    }
-//    @Override
-//    public Pet deleteById(int count_id) {
-//        return null;
-//    }
 
 }

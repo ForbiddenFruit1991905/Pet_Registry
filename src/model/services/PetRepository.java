@@ -12,7 +12,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 
-public class PetRepository<T extends IRepository<T>> {
+public class PetRepository<T extends IRepository<T>> implements Iterable<T>{
     private List<T> pets;
     private PetBuilder petBuilder;
 
@@ -26,9 +26,9 @@ public class PetRepository<T extends IRepository<T>> {
     }
 
     // Нахождение записи по ID
-    public T findById(int idPet) {
+    public T findById(int count_id) {
         for (T pet : pets) {
-            if (Objects.equals(pet.getId(), idPet)) {
+            if (Objects.equals(pet.getId(), count_id)) {
                 return pet;
             }
         }
@@ -48,10 +48,10 @@ public class PetRepository<T extends IRepository<T>> {
     }
 
     // Удалить запись по ID
-    public T deleteById(int idPet) {
+    public T deleteById(int count_id) {
         for (T pet : pets) {
-            if (Objects.equals(pet.getId(), idPet)) {
-                return pets.remove(idPet - 1);
+            if (Objects.equals(pet.getId(), count_id)) {
+                return pets.remove(count_id - 1);
             }
         }
         return null;
@@ -63,10 +63,11 @@ public class PetRepository<T extends IRepository<T>> {
         stringBuilder.append("Список животных:\n");
         for (T pet : pets) {
             stringBuilder.append(pet);
-            stringBuilder.append("n");
+            stringBuilder.append("\n");
         }
         return stringBuilder.toString();
     }
+
      //TODO нет логики метода
     /*
     public String getListOfCommands() {

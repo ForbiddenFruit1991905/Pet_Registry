@@ -4,9 +4,9 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Cat extends Pet implements Petable {
-    public Cat(String name, LocalDate birthday, LocalDate deathDate, ArrayList<Pet> commands) {
-        super(name, birthday, deathDate, commands);
-    }
+//    public Cat(String name, LocalDate birthday, LocalDate deathDate, ArrayList<Pet> commands) {
+//        super(name);
+//    }
 
     public Cat(String name) {
         super(name);
