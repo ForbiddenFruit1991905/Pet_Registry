@@ -70,11 +70,12 @@ public class PetRepository<T extends IRepository<T>> implements Iterable<T>{
 //        }
 //
 //        System.out.println("Животное с указанным именем не найдено.");
-        
+
         //TODO доработать  Вар.2
         Scanner scanner = new Scanner(System.in);
         System.out.println("Выберите вид животного: 1 - кот, 2 - собака, 3 - хомяк, 4 - лошадь, 5 - верблюд, 6 - ослик");
         int choice = scanner.nextInt();
+        System.out.println("Список животных по типам: ");
         for (T pet : pets) {
             switch (choice) {
                 case 1:
@@ -92,16 +93,29 @@ public class PetRepository<T extends IRepository<T>> implements Iterable<T>{
                         System.out.println("Хомяк: " + pet.getName());
                     }
                     break;
-                // Добавить аналогичный код для остальных видов животных
+                case 4:
+                    if (pet instanceof Camel) {
+                        System.out.println("Верблюд: " + pet.getName());
+                    }
+                    break;
+                case 5:
+                    if (pet instanceof Horse) {
+                        System.out.println("Лошадь: " + pet.getName());
+                    }
+                    break;
+                case 6:
+                    if (pet instanceof Donkey) {
+                        System.out.println("Ослик: " + pet.getName());
+                    }
+                    break;
                 default:
                     System.out.println("Некорректный выбор.");
             }
-        }
+            
+            System.out.println(pet.getName() + " " /*+ pet.getClass()*/ + choice);
 
 
-//            System.out.println("Список животных по типам: " + pet.getName() /*+ " " + pet.getClass()*/);
-
-        // Вар.3
+            // Вар.3
 //        for (T pet : pets) {
 //            if (pet instanceof Cat) {
 //                System.out.println("Кошка: " + pet.getName());
@@ -118,6 +132,7 @@ public class PetRepository<T extends IRepository<T>> implements Iterable<T>{
 //            }
 //            }
         }
+    }
     
 
     // Список всех записей
