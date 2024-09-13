@@ -38,17 +38,13 @@ public class ConsoleUI implements View {
             }
         }
     }
-    //TODO нет реализации checkClass
-    public void checkClass() {
-
-    }
 
     public void addNewPet() {
         System.out.println("Укажете имя:");
         String name = scanner.nextLine();
         System.out.println("Выберите вид животного: 1 - кот, 2 - собака, 3 - хомяк, 4 - лошадь, 5 - верблюд, 6 - ослик");
         int choice = scanner.nextInt();
-        //TODO доработать
+        
         switch (choice) {
             case 1:
                 pets.add(new Cat(name));
@@ -85,14 +81,23 @@ public class ConsoleUI implements View {
         ArrayList<String> commandsList = new ArrayList<>(Arrays.asList(commandsArray));
         System.out.println("Список команд: " + commandsList);
 
-        System.out.println("Запись внесена ---> " + "\n" +  "имя: " + name + "\n"  + "\n" + "Дата рождения: " + date.format(dtf) + "\n" + "Список команд: " + commandsList);
+        System.out.println("Запись внесена ---> " + "\n" +  "имя: " + name + "\n" + "Дата рождения: " + date.format(dtf) + "\n" + "Список команд: " + commandsList);
         System.out.println();
         presenter.addNewPet(name, date, null, commandsList);
     }
     //TODO нет реализации learnNewCommand
     public void learnNewCommand() {
-        
+        System.out.println("Укажите новую команду: ");
+        String learnCommand = scanner.nextLine();
+        System.out.println("Команда выучена");
+//        presenter.
     }
+
+    public void checkClass() {
+        presenter.checkClass();
+    }
+
+
     //TODO нет реализации getListOfCommands
     // по имени животного поиск
     public void getListOfCommands() {

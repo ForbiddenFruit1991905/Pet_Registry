@@ -1,7 +1,6 @@
 package model;
 
 import model.services.IRepository;
-
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
@@ -14,29 +13,23 @@ public class Pet implements IRepository {
     private String name;
     private LocalDate birthday;
     private LocalDate deathDate;
-    private ArrayList<Pet> commands;
+    private ArrayList<String> commands;
 
-    public Pet(int id, String name, LocalDate birthday, LocalDate deathDate, ArrayList<Pet> commands) {
+    public Pet(int id, String name, LocalDate birthday, LocalDate deathDate, ArrayList<String> commands) {
         this.id = id;
         this.name = name;
         this.birthday = birthday;
         this.deathDate = deathDate;
         this.commands = commands;
     }
-    //TODO убрать
+    //TODO убрать?
     public Pet(String name) {
-    }
 
-//    public Pet(String name, LocalDate birthday, LocalDate deathDate, ArrayList<Pet> commands) {
-//    }
+    }
 
     public LocalDate getDeathDate() {
         return deathDate;
     }
-
-//    public void setId(int id) {
-//        this.id = id;
-//    }
 
     @Override
     public List getAll() {
@@ -56,9 +49,10 @@ public class Pet implements IRepository {
         return formatter.format(birthday);
     }
 
-    public ArrayList<Pet> getCommands() {
-        return commands;
+    public String getCommands() {
+        return commands.toString();
     }
+
 
     //TODO пустой метод
     @Override
@@ -68,9 +62,18 @@ public class Pet implements IRepository {
 
     //TODO 1
     // что-то на непонятном
-    public void addCommand(Pet command){
+    public void addCommand(String command){
         commands.add(command);
     }
+
+//    public String getAnimalCommands() {
+//        return commands.toString();
+//    }
+//
+//    public void addCommand(String command){
+//        commands.add(command);
+//
+//    }
 
 //    public boolean getCommand(Pet command) {
 //        if (!commands.contains(command)){
@@ -85,10 +88,10 @@ public class Pet implements IRepository {
         StringBuilder list = new StringBuilder();
         list.append("Обучен(а) следующим командам: ");
         if (!commands.isEmpty()) {
-            list.append(commands.get(0).getCommands());
+            list.append(commands.get(0)/*.getCommands()*/);
             for (int i = 1; i < commands.size(); i++) {
                 list.append(", ");
-                list.append(commands.get(i).getCommands());
+                list.append(commands.get(i)/*.getCommands()*/);
             }
         } else {
             list.append("нет");

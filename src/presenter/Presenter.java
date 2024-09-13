@@ -28,6 +28,11 @@ public class Presenter {
         return (Pet) petRepository.findById(count_id);
     }
 
+    //    Проверка класса
+    public void checkClass() {
+        petRepository.checkClass();
+    }
+
     //    Удаление записи
     public void deleteById(int count_id) {
         petRepository.deleteById(count_id);
