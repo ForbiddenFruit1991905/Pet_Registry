@@ -1,9 +1,11 @@
 package view;
 
 import model.*;
-import model.services.PetCreationException;
+import model.services.exceptions.NoRecException;
+import model.services.exceptions.PetCreationException;
 import presenter.Presenter;
 
+import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -26,7 +28,7 @@ public class ConsoleUI implements View {
     }
 
     @Override
-    public void start() throws PetCreationException {
+    public void start() throws PetCreationException, NoRecException {
         while (flag) {
             System.out.println(menu.getMenu());
             String command = scanner.nextLine();
@@ -72,9 +74,8 @@ public class ConsoleUI implements View {
         LocalDate date = LocalDate.of(scanner.nextInt(), scanner.nextInt(), scanner.nextInt());
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyyy");
         System.out.println(date.format(dtf));
-
         System.out.println(scanner.nextLine());
-        //TODO доработать
+
         System.out.println("Введите команды через запятую:");
         String input = scanner.nextLine();
         String[] commandsArray = input.split(", ");
@@ -92,6 +93,7 @@ public class ConsoleUI implements View {
         System.out.println("Команда выучена");
 //        presenter.
     }
+    
     //TODO нет реализации
     public void checkClass() {
         presenter.checkClass();
@@ -113,8 +115,13 @@ public class ConsoleUI implements View {
         System.out.println(presenter.findById(idPet));
     }
 
-    public void getAllPet() {
-        presenter.getPetList();
+    public void getAllPet() throws NoRecException {
+        boolean petList = presenter.getPetList();
+        if (!petList) {
+            throw new NoRecException("Нет доступных записей о питомцах");
+        } else {
+            presenter.getPetList();
+        }
     }
 
     public void sortByAge() {
@@ -143,5 +150,24 @@ public class ConsoleUI implements View {
     @Override
     public void printAnswer(String answer) {
         System.out.println(answer);
+    }
+
+    //TODO нереализованное исключение
+    public void checkBirthdayDate(int year, int month, int day) throws IllegalArgumentException {
+        try {
+            LocalDate birthday = LocalDate.of(year, month, day);
+            LocalDate currentDate = LocalDate.now();
+
+            if (year > currentDate.getYear() || month < 1 || month > 12 || day < 1 || day > birthday.lengthOfMonth()) {
+                throw new IllegalArgumentException("Некорректная дата рождения");
+            }
+
+            // Дата в пределах допустимых значений
+            System.out.println("Введенная дата допустима: " + birthday);
+
+        } catch (DateTimeException e) {
+            System.err.println("Ошибка при создании LocalDate: " + e.getMessage());
+
+        }
     }
 }

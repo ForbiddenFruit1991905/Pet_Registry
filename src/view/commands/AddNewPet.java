@@ -1,6 +1,6 @@
 package view.commands;
 
-import model.services.PetCreationException;
+import model.services.exceptions.PetCreationException;
 import view.ConsoleUI;
 
 public class AddNewPet extends Commands{

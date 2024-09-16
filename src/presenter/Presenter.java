@@ -1,7 +1,7 @@
 package presenter;
 
 import model.Pet;
-import model.services.PetCreationException;
+import model.services.exceptions.PetCreationException;
 import model.services.PetRepository;
 import view.View;
 
@@ -40,9 +40,10 @@ public class Presenter {
     }
 
     //    Список всех записей животных в реестре
-    public void getPetList() {
+    public boolean getPetList() {
         String answer = petRepository.getPetList();
         view.printAnswer(answer);
+        return false;
     }
 
     //    Сортировка по возрасту

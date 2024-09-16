@@ -4,6 +4,8 @@ import model.*;
 import model.comparator.ComparatorByDateBirth;
 import model.comparator.ComparatorByName;
 import model.iterator.PetIterator;
+import model.services.exceptions.PetCreationException;
+
 import java.time.LocalDate;
 import java.util.*;
 
@@ -16,9 +18,9 @@ public class PetRepository<T extends IRepository<T>> implements Iterable<T> {
         this.petBuilder = new PetBuilder();
     }
 
-    public List<T> getAllPet() {
-        return pets;
-    }
+//    public List<T> getAllPet() {
+//        return pets;
+//    }
 
     // Нахождение записи по ID
     public T findById(int count_id) {

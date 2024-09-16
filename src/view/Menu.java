@@ -1,6 +1,7 @@
 package view;
 
-import model.services.PetCreationException;
+import model.services.exceptions.NoRecException;
+import model.services.exceptions.PetCreationException;
 import view.commands.*;
 
 import java.util.ArrayList;
@@ -34,7 +35,7 @@ public class Menu {
         return strMenu.toString();
     }
 
-    public void execute(int choice) throws PetCreationException {
+    public void execute(int choice) throws PetCreationException, NoRecException {
         Commands commands = commandsList.get(choice - 1);
         commands.execute();
     }

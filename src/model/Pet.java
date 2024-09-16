@@ -23,13 +23,11 @@ public class Pet implements IRepository {
         this.commands = commands;
     }
     //TODO убрать?
-    public Pet(String name) {
-
-    }
+//    public Pet(String name) {
+//        this.name = name;
+//    }
 
     public Pet(String name, LocalDate birthday, LocalDate deathDate, ArrayList<String> commands) {
-        // TODO document why this constructor is empty
-       
         this.name = name;
         this.birthday = birthday;
         this.deathDate = deathDate;
