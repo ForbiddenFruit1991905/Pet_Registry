@@ -62,21 +62,9 @@ public class Pet implements IRepository {
         return commands.toString();
     }
 
-
-    //TODO пустой метод
-    @Override
-    public void addCommand(Object command) {
-
-    }
-
     @Override
     public String getInfo() {
         return "";
-    }
-
-    public Pet addCommand(String command){
-        commands.add(command);
-        return null;
     }
 
     @Override
