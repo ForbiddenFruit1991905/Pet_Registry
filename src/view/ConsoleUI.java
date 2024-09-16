@@ -1,6 +1,7 @@
 package view;
 
 import model.*;
+import model.services.PetCreationException;
 import presenter.Presenter;
 
 import java.time.LocalDate;
@@ -25,7 +26,7 @@ public class ConsoleUI implements View {
     }
 
     @Override
-    public void start() {
+    public void start() throws PetCreationException {
         while (flag) {
             System.out.println(menu.getMenu());
             String command = scanner.nextLine();
@@ -39,30 +40,29 @@ public class ConsoleUI implements View {
         }
     }
 
-    public void addNewPet() {
+    public void addNewPet() throws PetCreationException {
         System.out.println("Укажете имя:");
         String name = scanner.nextLine();
         System.out.println("Выберите вид животного: 1 - кот, 2 - собака, 3 - хомяк, 4 - лошадь, 5 - верблюд, 6 - ослик");
         int choice = scanner.nextInt();
-        
         switch (choice) {
             case 1:
-                pets.add(new Cat(name));
+                pets.add(new Cat(name, null, null, null));
                 break;
             case 2:
-                pets.add(new Dog(name));
+                pets.add(new Dog(name, null, null, null));
                 break;
             case 3:
-                pets.add(new Hamster(name));
+                pets.add(new Hamster(name, null, null, null));
                 break;
             case 4:
-                pets.add(new Horse(name));
+                pets.add(new Horse(name, null, null, null));
                 break;
             case 5:
-                pets.add(new Camel(name));
+                pets.add(new Camel(name, null, null, null));
                 break;
             case 6:
-                pets.add(new Donkey(name));
+                pets.add(new Donkey(name, null, null, null));
                 break;
             default:
                 System.out.println("Некорректный выбор.");
@@ -77,7 +77,7 @@ public class ConsoleUI implements View {
         //TODO доработать
         System.out.println("Введите команды через запятую:");
         String input = scanner.nextLine();
-        String[] commandsArray = input.split(",");
+        String[] commandsArray = input.split(", ");
         ArrayList<String> commandsList = new ArrayList<>(Arrays.asList(commandsArray));
         System.out.println("Список команд: " + commandsList);
 
@@ -92,16 +92,9 @@ public class ConsoleUI implements View {
         System.out.println("Команда выучена");
 //        presenter.
     }
-
+    //TODO нет реализации
     public void checkClass() {
         presenter.checkClass();
-    }
-
-
-    //TODO нет реализации getListOfCommands
-    // по имени животного поиск
-    public void getListOfCommands() {
-
     }
 
     public void deleteById() {
@@ -135,7 +128,7 @@ public class ConsoleUI implements View {
     }
 
     public void finish() {
-        System.out.println("Exit");
+        System.out.println("Вы вышли из приложения");
         flag = false;
     }
 

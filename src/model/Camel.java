@@ -5,8 +5,8 @@ import java.util.ArrayList;
 
 public class Camel extends Pet implements Packable {
 
-    public Camel(String name) {
-        super(name);
+    public Camel(String name, LocalDate birthday, LocalDate deathDate, ArrayList<String> commands) {
+        super(name, birthday, deathDate, commands);
     }
 
     @Override

@@ -1,6 +1,7 @@
 package presenter;
 
 import model.Pet;
+import model.services.PetCreationException;
 import model.services.PetRepository;
 import view.View;
 
@@ -18,7 +19,7 @@ public class Presenter {
 
     //TODO не уверена что правильно будет работать из-за return(name)
     //    Добавить новую запись
-    public String addNewPet(String name, LocalDate birthday, LocalDate deathDate, ArrayList commands) {
+    public String addNewPet(String name, LocalDate birthday, LocalDate deathDate, ArrayList commands) throws PetCreationException {
         petRepository.addNewPet(name, birthday, deathDate, commands);
         return name;
     }
@@ -53,7 +54,4 @@ public class Presenter {
     public void getComparatorByName() {
         petRepository.sortByName();
     }
-
-    //TODO Вывод списка команд
-
 }

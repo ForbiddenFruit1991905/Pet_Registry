@@ -1,7 +1,6 @@
 package model.services;
 
 import model.Pet;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -11,3 +10,4 @@ public class PetBuilder {
         return new Pet(count_id++, name, birthday, deathDate, commands);
     }
 }
+

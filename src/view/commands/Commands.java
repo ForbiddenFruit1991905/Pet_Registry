@@ -1,5 +1,6 @@
 package view.commands;
 
+import model.services.PetCreationException;
 import view.ConsoleUI;
 
 public abstract class Commands {
@@ -19,5 +20,5 @@ public abstract class Commands {
         return consoleUI;
     }
 
-    public abstract void execute();
+    public abstract void execute() throws PetCreationException;
 }

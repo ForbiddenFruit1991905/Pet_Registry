@@ -1,5 +1,6 @@
 package view.commands;
 
+import model.services.PetCreationException;
 import view.ConsoleUI;
 
 public class AddNewPet extends Commands{
@@ -8,7 +9,7 @@ public class AddNewPet extends Commands{
     }
 
     @Override
-    public void execute() {
+    public void execute() throws PetCreationException {
         getConsoleUI().addNewPet();
     }
 }

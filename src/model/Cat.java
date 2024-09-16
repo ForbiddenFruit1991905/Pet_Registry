@@ -5,8 +5,8 @@ import java.util.ArrayList;
 
 public class Cat extends Pet implements Petable {
 
-    public Cat(String name) {
-        super(name);
+    public Cat(String name, LocalDate birthday, LocalDate deathDate, ArrayList<String> commands) {
+        super(name, birthday, deathDate, commands);
     }
 
     @Override

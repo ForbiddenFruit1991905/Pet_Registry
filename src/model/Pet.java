@@ -27,6 +27,15 @@ public class Pet implements IRepository {
 
     }
 
+    public Pet(String name, LocalDate birthday, LocalDate deathDate, ArrayList<String> commands) {
+        // TODO document why this constructor is empty
+       
+        this.name = name;
+        this.birthday = birthday;
+        this.deathDate = deathDate;
+        this.commands = commands;
+    }
+
     public LocalDate getDeathDate() {
         return deathDate;
     }
@@ -60,43 +69,14 @@ public class Pet implements IRepository {
 
     }
 
-    //TODO 1
-    // что-то на непонятном
-    public void addCommand(String command){
-        commands.add(command);
+    @Override
+    public String getInfo() {
+        return "";
     }
 
-//    public String getAnimalCommands() {
-//        return commands.toString();
-//    }
-//
-//    public void addCommand(String command){
-//        commands.add(command);
-//
-//    }
-
-//    public boolean getCommand(Pet command) {
-//        if (!commands.contains(command)){
-//            commands.add(command);
-//            return true;
-//        }
-//        return false;
-//    }
-
-//TODO доработать
-    public String getInfo() {
-        StringBuilder list = new StringBuilder();
-        list.append("Обучен(а) следующим командам: ");
-        if (!commands.isEmpty()) {
-            list.append(commands.get(0)/*.getCommands()*/);
-            for (int i = 1; i < commands.size(); i++) {
-                list.append(", ");
-                list.append(commands.get(i)/*.getCommands()*/);
-            }
-        } else {
-            list.append("нет");
-        }
-        return list.toString();
+    public Pet addCommand(String command){
+        commands.add(command);
+        return null;
     }
 
     @Override
@@ -124,10 +104,10 @@ public class Pet implements IRepository {
         return null;
     }
 
-
     @Override
     public String toString() {
-        return String.format("ID: " + getId() + "\n" + "name: " + getName() + "\n" + "birthday:" + getBirthday() /*+ getInfo()*/);
+        return String.format("ID: %d\nИмя: %s\nДень рождения: %s\nКомманды: %s",
+                getId(), getName(), getBirthday(), getCommands());
     }
 
     public int getPetAge(){

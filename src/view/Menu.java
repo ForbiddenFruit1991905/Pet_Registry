@@ -1,5 +1,6 @@
 package view;
 
+import model.services.PetCreationException;
 import view.commands.*;
 
 import java.util.ArrayList;
@@ -12,7 +13,6 @@ public class Menu {
         commandsList = new ArrayList<>();
         commandsList.add(new AddNewPet(consoleUI));
         commandsList.add(new CheckClass(consoleUI));
-        commandsList.add(new GetListOfCommands(consoleUI));
         commandsList.add(new FindById(consoleUI));
         commandsList.add(new DeleteById(consoleUI));
         commandsList.add(new GetAllPet(consoleUI));
@@ -34,7 +34,7 @@ public class Menu {
         return strMenu.toString();
     }
 
-    public void execute(int choice) {
+    public void execute(int choice) throws PetCreationException {
         Commands commands = commandsList.get(choice - 1);
         commands.execute();
     }

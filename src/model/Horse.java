@@ -5,8 +5,8 @@ import java.util.ArrayList;
 
 public class Horse extends Pet implements Packable, Petable {
 
-    public Horse(String name) {
-        super(name);
+    public Horse(String name, LocalDate birthday, LocalDate deathDate, ArrayList<String> commands) {
+        super(name, birthday, deathDate, commands);
     }
 
     @Override
