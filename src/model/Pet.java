@@ -22,10 +22,6 @@ public class Pet implements IRepository {
         this.deathDate = deathDate;
         this.commands = commands;
     }
-    //TODO убрать?
-//    public Pet(String name) {
-//        this.name = name;
-//    }
 
     public Pet(String name, LocalDate birthday, LocalDate deathDate, ArrayList<String> commands) {
         this.name = name;
@@ -56,8 +52,8 @@ public class Pet implements IRepository {
         return formatter.format(birthday);
     }
 
-    public String getCommands() {
-        return commands.toString();
+    public ArrayList<String> getCommands() {
+        return commands;
     }
 
     @Override

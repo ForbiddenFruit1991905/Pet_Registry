@@ -2,6 +2,7 @@ package model.services;
 
 import model.Pet;
 
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
@@ -12,7 +13,7 @@ public interface IRepository<T> extends Comparable{
     int getAge();
     List<T> getAllPet();
     Pet findById(int idPet);
-    String getCommands();
+    List getCommands();
     String getInfo();
     T getById(int id);
     T addNewPet(T pet);

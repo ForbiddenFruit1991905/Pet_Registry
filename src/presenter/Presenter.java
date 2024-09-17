@@ -4,7 +4,6 @@ import model.Pet;
 import model.services.exceptions.PetCreationException;
 import model.services.PetRepository;
 import view.View;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -17,8 +16,7 @@ public class Presenter {
         petRepository = new PetRepository();
     }
 
-    //TODO не уверена что правильно будет работать из-за return(name)
-    //    Добавить новую запись
+    //    Добавить новое животное в реестр
     public String addNewPet(String name, LocalDate birthday, LocalDate deathDate, ArrayList commands) throws PetCreationException {
         petRepository.addNewPet(name, birthday, deathDate, commands);
         return name;
@@ -34,16 +32,21 @@ public class Presenter {
         petRepository.checkClass();
     }
 
+    // Выучить новую команду
+    public void learnNewCommand(String newCommand) {
+        petRepository.learnNewCommand(newCommand);
+    }
+
     //    Удаление записи
     public void deleteById(int count_id) {
         petRepository.deleteById(count_id);
     }
 
     //    Список всех записей животных в реестре
-    public boolean getPetList() {
+    public String getPetList() {
         String answer = petRepository.getPetList();
         view.printAnswer(answer);
-        return false;
+        return "";
     }
 
     //    Сортировка по возрасту
@@ -54,5 +57,9 @@ public class Presenter {
     //    Сортировка по имени
     public void getComparatorByName() {
         petRepository.sortByName();
+    }
+
+    public String getCommands() {
+        return petRepository.getCommands();
     }
 }

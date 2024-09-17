@@ -18,10 +18,6 @@ public class PetRepository<T extends IRepository<T>> implements Iterable<T> {
         this.petBuilder = new PetBuilder();
     }
 
-//    public List<T> getAllPet() {
-//        return pets;
-//    }
-
     // Нахождение записи по ID
     public T findById(int count_id) {
         for (T pet : pets) {
@@ -98,6 +94,23 @@ public class PetRepository<T extends IRepository<T>> implements Iterable<T> {
     public void sortByAge(){
         pets.sort(new ComparatorByDateBirth<>());
     }
+
+    // Добавить новую команду, выполняемую питомцем
+    public String learnNewCommand(String newCommand) {
+        ArrayList allCommands = new ArrayList<>();
+        for (T pet : pets) {
+            allCommands.addAll(pet.getCommands());
+        }
+        return newCommand;
+    }
+
+    public String getCommands() {
+        for (T pet : pets) {
+            pet.getCommands();
+        }
+        return "";
+    }
+
 }
 
 
