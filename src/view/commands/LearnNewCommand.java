@@ -13,8 +13,4 @@ public class LearnNewCommand extends Commands{
         getConsoleUI().learnNewCommand();
     }
 
-    @Override
-    public void execute(int count_id) {
-
-    }
 }

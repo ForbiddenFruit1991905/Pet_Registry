@@ -58,6 +58,10 @@ public class Pet implements IRepository {
 
     @Override
     public String getInfo() {
+//        return "";
+        for (int i = 1; i < commands.size(); i++) {
+            commands.get(i);
+        }
         return "";
     }
 
