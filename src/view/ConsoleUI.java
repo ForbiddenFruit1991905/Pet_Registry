@@ -41,47 +41,51 @@ public class ConsoleUI implements View {
     }
 
     public void addNewPet() throws PetCreationException {
-        System.out.println("Укажете имя:");
-        String name = scanner.nextLine();
-        System.out.println("Выберите вид животного: 1 - кот, 2 - собака, 3 - хомяк, 4 - лошадь, 5 - верблюд, 6 - ослик");
-        int choice = scanner.nextInt();
-        switch (choice) {
-            case 1:
-                pets.add(new Cat(name, null, null, null));
-                break;
-            case 2:
-                pets.add(new Dog(name, null, null, null));
-                break;
-            case 3:
-                pets.add(new Hamster(name, null, null, null));
-                break;
-            case 4:
-                pets.add(new Horse(name, null, null, null));
-                break;
-            case 5:
-                pets.add(new Camel(name, null, null, null));
-                break;
-            case 6:
-                pets.add(new Donkey(name, null, null, null));
-                break;
-            default:
-                System.out.println("Некорректный выбор.");
-        }
-        System.out.println("Укажите дату гг/мм/дд:");
-        LocalDate date = LocalDate.of(scanner.nextInt(), scanner.nextInt(), scanner.nextInt());
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyyy");
-        System.out.println(date.format(dtf));
-        System.out.println(scanner.nextLine());
-        //TODO
+        try {
+            System.out.println("Укажете имя:");
+            String name = scanner.nextLine();
+            System.out.println("Выберите вид животного: 1 - кот, 2 - собака, 3 - хомяк, 4 - лошадь, 5 - верблюд, 6 - ослик");
+            int choice = scanner.nextInt();
+            switch (choice) {
+                case 1:
+                    pets.add(new Cat(name, null, null, null));
+                    break;
+                case 2:
+                    pets.add(new Dog(name, null, null, null));
+                    break;
+                case 3:
+                    pets.add(new Hamster(name, null, null, null));
+                    break;
+                case 4:
+                    pets.add(new Horse(name, null, null, null));
+                    break;
+                case 5:
+                    pets.add(new Camel(name, null, null, null));
+                    break;
+                case 6:
+                    pets.add(new Donkey(name, null, null, null));
+                    break;
+                default:
+                    System.out.println("Некорректный выбор.");
+            }
+            System.out.println("Укажите дату гг/мм/дд:");
+            LocalDate date = LocalDate.of(scanner.nextInt(), scanner.nextInt(), scanner.nextInt());
+            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+            System.out.println(date.format(dtf));
+            System.out.println(scanner.nextLine());
+            //TODO
 //        checkBirthdayDate(scanner.nextInt(), scanner.nextInt(), scanner.nextInt());
-        System.out.println("Введите команды через запятую:");
-        String input = scanner.nextLine();
-        String[] commandsArray = input.split(", ");
-        ArrayList<String> commandsList = new ArrayList<>(Arrays.asList(commandsArray));
-        System.out.println("Список команд: " + commandsList);
-        System.out.println("Запись внесена ---> " + "\n" +  "имя: " + name + "\n" + "Дата рождения: " + date.format(dtf) + "\n" + "Список команд: " + commandsList);
-        System.out.println();
-        presenter.addNewPet(name, date, null, commandsList);
+            System.out.println("Введите команды через запятую:");
+            String input = scanner.nextLine();
+            String[] commandsArray = input.split(", ");
+            ArrayList<String> commandsList = new ArrayList<>(Arrays.asList(commandsArray));
+            System.out.println("Список команд: " + commandsList);
+            System.out.println("Запись внесена ---> " + "\n" + "имя: " + name + "\n" + "Дата рождения: " + date.format(dtf) + "\n" + "Список команд: " + commandsList);
+            System.out.println();
+            presenter.addNewPet(name, date, null, commandsList);
+        } catch (InputMismatchException e) {
+            System.out.println("Ошибка: введено некорректное значение. Пожалуйста, введите целое число.");
+        }
     }
 
     //TODO нет реализации learnNewCommand (не добавляет/не запоминает)

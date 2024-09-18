@@ -57,19 +57,22 @@ public class PetRepository<T extends IRepository<T>> implements Iterable<T> {
         for (T pet : pets) {
             if (choice == 1 && pet instanceof Cat) {
                 System.out.println("Кошка: " + pet.getName());
-            } else if (choice == 2 && pet instanceof Dog) {
-                System.out.println("Собака: " + pet.getName());
-            } else if (choice == 3 && pet instanceof Hamster) {
-                System.out.println("Хомяк: " + pet.getName());
-            } else if (choice == 4 && pet instanceof Camel) {
-                System.out.println("Верблюд: " + pet.getName());
-            } else if (choice == 5 && pet instanceof Horse) {
-                System.out.println("Лошадь: " + pet.getName());
-            } else if (choice == 6 && pet instanceof Donkey) {
-                System.out.println("Ослик: " + pet.getName());
+                System.out.println(pet.getClass());
             }
-            System.out.println(pet.getClass());
+//            else if (choice == 2 && pet instanceof Dog) {
+//                System.out.println("Собака: " + pet.getName());
+//            } else if (choice == 3 && pet instanceof Hamster) {
+//                System.out.println("Хомяк: " + pet.getName());
+//            } else if (choice == 4 && pet instanceof Camel) {
+//                System.out.println("Верблюд: " + pet.getName());
+//            } else if (choice == 5 && pet instanceof Horse) {
+//                System.out.println("Лошадь: " + pet.getName());
+//            } else if (choice == 6 && pet instanceof Donkey) {
+//                System.out.println("Ослик: " + pet.getName());
+//            }
+
         }
+
    }
 
     // Список всех записей
