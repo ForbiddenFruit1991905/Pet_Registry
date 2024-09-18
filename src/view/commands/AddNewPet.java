@@ -12,4 +12,5 @@ public class AddNewPet extends Commands{
     public void execute() throws PetCreationException {
         getConsoleUI().addNewPet();
     }
+
 }

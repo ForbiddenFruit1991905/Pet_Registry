@@ -43,7 +43,7 @@ public class Presenter {
     }
 
     //    Список всех записей животных в реестре
-    public String getPetList() {
+    public String getPetList(){
         String answer = petRepository.getPetList();
         view.printAnswer(answer);
         return "";

@@ -68,12 +68,13 @@ public class PetRepository<T extends IRepository<T>> implements Iterable<T> {
             } else if (choice == 6 && pet instanceof Donkey) {
                 System.out.println("Ослик: " + pet.getName());
             }
-            System.out.println(pet.getName());
+            System.out.println(pet.getClass());
         }
    }
 
     // Список всех записей
     public String getPetList() {
+
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("Список животных:\n");
         for (T pet : pets) {

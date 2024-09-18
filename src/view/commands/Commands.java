@@ -1,6 +1,5 @@
 package view.commands;
 
-import model.services.exceptions.NoRecException;
 import model.services.exceptions.PetCreationException;
 import view.ConsoleUI;
 
@@ -21,5 +20,5 @@ public abstract class Commands {
         return consoleUI;
     }
 
-    public abstract void execute() throws PetCreationException, NoRecException;
+    public abstract void execute() throws PetCreationException;
 }

@@ -2,7 +2,6 @@ package view;
 
 import model.*;
 import model.services.PetRepository;
-import model.services.exceptions.NoRecException;
 import model.services.exceptions.PetCreationException;
 import presenter.Presenter;
 
@@ -27,7 +26,7 @@ public class ConsoleUI implements View {
     }
 
     @Override
-    public void start() throws PetCreationException, NoRecException {
+    public void start() throws PetCreationException {
         while (flag) {
             System.out.println(menu.getMenu());
             String command = scanner.nextLine();
@@ -85,12 +84,10 @@ public class ConsoleUI implements View {
         presenter.addNewPet(name, date, null, commandsList);
     }
 
-
     //TODO нет реализации learnNewCommand (не добавляет/не запоминает)
     public void learnNewCommand() {//
         System.out.println("Укажите новую команду: ");
         String newCommand = scanner.nextLine();
-      
         if (!newCommand.isEmpty()) {
             presenter.learnNewCommand(newCommand);
             System.out.println("Команда '" + newCommand + "' успешно добавлена и выучена");
@@ -120,22 +117,16 @@ public class ConsoleUI implements View {
         int idPet = Integer.parseInt(strID);
         System.out.println(presenter.findById(idPet));
 
-        String commands = presenter.getCommands(); // Получаем текущий список команд из объекта Menu
-        System.out.println("Список доступных команд:");
-        for (int i = 0; i < commands.length(); i++) {
-            System.out.println(commands.charAt(i));
-        }
+//        String commands = presenter.getCommands(); // Получаем текущий список команд из объекта Menu
+//        System.out.println("Список доступных команд:");
+//        for (int i = 0; i < commands.length(); i++) {
+//            System.out.println(commands.charAt(i));
+//        }
     }
 
     // TODO доработать exception
-    public void getAllPet() throws NoRecException {
-        String petList = presenter.getPetList();
-        if (petList.isEmpty()) {
-            throw new NoRecException("Нет доступных записей о питомцах");
-        } else {
-//            presenter.getPetList();
-            System.out.println(petList);
-        }
+    public void getAllPet() {
+        presenter.getPetList();
     }
 
     public void sortByAge() {

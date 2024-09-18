@@ -1,6 +1,5 @@
 package view.commands;
 
-import model.services.exceptions.NoRecException;
 import view.ConsoleUI;
 
 public class GetAllPet extends Commands{
@@ -10,7 +9,7 @@ public class GetAllPet extends Commands{
     }
 
     @Override
-    public void execute() throws NoRecException {
+    public void execute() {
         getConsoleUI().getAllPet();
     }
 }

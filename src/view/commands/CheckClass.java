@@ -1,5 +1,6 @@
 package view.commands;
 
+import model.services.exceptions.PetCreationException;
 import view.ConsoleUI;
 
 public class CheckClass extends Commands{
@@ -11,4 +12,6 @@ public class CheckClass extends Commands{
     public void execute() {
         getConsoleUI().checkClass();
     }
+
+
 }
