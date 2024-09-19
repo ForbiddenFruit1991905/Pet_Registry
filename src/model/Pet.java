@@ -99,7 +99,7 @@ public class Pet implements IRepository {
 
     @Override
     public String toString() {
-        return String.format("ID: %d\nКласс животного: %s\n Имя: %s\nДень рождения: %s\nКомманды: %s",
+        return String.format("ID: %d\nКласс животного: %s\nИмя: %s\nДень рождения: %s\nКомманды: %s",
                 getId(), getType(), getName(), getBirthday(), getCommands());
     }
 

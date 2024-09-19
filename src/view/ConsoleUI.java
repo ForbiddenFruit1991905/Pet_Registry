@@ -49,7 +49,6 @@ public class ConsoleUI implements View {
             switch (choice) {
                 case 1:
                     pets.add(new Cat(name, PetType.getType(1),null, null, null));
-                    pets.getClass();
                     break;
                 case 2:
                     pets.add(new Dog(name, PetType.getType(2),null, null, null));
@@ -86,18 +85,27 @@ public class ConsoleUI implements View {
             presenter.addNewPet(name, PetType.getType(choice), date, null, commandsList);
         } catch (InputMismatchException e) {
             System.out.println("Ошибка: введено некорректное значение. Пожалуйста, введите целое число.");
+        } catch (DateTimeException dtException) {
+            System.out.println("Ошибка: некорректная дата. Пожалуйста, укажите корректную дату.");
         }
     }
 
     //TODO нет реализации learnNewCommand (не добавляет/не запоминает)
-    public void learnNewCommand() {//
-        System.out.println("Укажите новую команду: ");
-        String newCommand = scanner.nextLine();
-        if (!newCommand.isEmpty()) {
+    public void learnNewCommand() {
+        System.out.println("Укажите ID животного, для которого хотите добавить новую команду:");
+        int petId = scanner.nextInt();
+        scanner.nextLine();
+        for (Pet pet : pets) {
+            pet.findById(petId);
+                System.out.println("Укажите новую команду: ");
+                String newCommand = scanner.nextLine();
+            if (!newCommand.isEmpty()) {
             presenter.learnNewCommand(newCommand);
-            System.out.println("Команда '" + newCommand + "' успешно добавлена и выучена");
-        } else {
-            System.out.println("Ошибка: команда не может быть пустой");
+                System.out.println("Команда '" + newCommand + "' успешно добавлена и выучена для ID" + petId);
+                return;
+            } else {
+                System.out.println("Ошибка: команда не может быть пустой");
+            }
         }
     }
 
@@ -121,12 +129,6 @@ public class ConsoleUI implements View {
         String strID  = scanner.nextLine();
         int idPet = Integer.parseInt(strID);
         System.out.println(presenter.findById(idPet));
-
-//        String commands = presenter.getCommands(); // Получаем текущий список команд из объекта Menu
-//        System.out.println("Список доступных команд:");
-//        for (int i = 0; i < commands.length(); i++) {
-//            System.out.println(commands.charAt(i));
-//        }
     }
 
     // TODO доработать exception

@@ -54,21 +54,44 @@ public class PetRepository<T extends IRepository<T>> implements Iterable<T> {
         System.out.println("Выберите вид животного: 1 - кот, 2 - собака, 3 - хомяк, 4 - лошадь, 5 - верблюд, 6 - ослик");
         int choice = scanner.nextInt();
         System.out.println("Список животных выбранного типа:");
+
         for (T pet : pets) {
-            if (choice == 1 && pet instanceof Cat) {
-                System.out.println("Кошка: " + pet.getName());
-                System.out.println(pet.getClass());
-            } else if (choice == 2 && pet instanceof Dog) {
-                System.out.println("Собака: " + pet.getName());
-            } else if (choice == 3 && pet instanceof Hamster) {
-                System.out.println("Хомяк: " + pet.getName());
-            } else if (choice == 4 && pet instanceof Camel) {
-                System.out.println("Верблюд: " + pet.getName());
-            } else if (choice == 5 && pet instanceof Horse) {
-                System.out.println("Лошадь: " + pet.getName());
-            } else if (choice == 6 && pet instanceof Donkey) {
-                System.out.println("Ослик: " + pet.getName());
+            switch (choice) {
+                case 1:
+                    if (pet instanceof Cat) {
+                        System.out.println("Кошка: " + pet.getName());
+                    }
+                    break;
+                case 2:
+                    if (pet instanceof Dog) {
+                        System.out.println("Собака: " + pet.getName());
+                    }
+                    break;
+                case 3:
+                    if (pet instanceof Hamster) {
+                        System.out.println("Хомяк: " + pet.getName());
+                    }
+                    break;
+                case 4:
+                    if (pet instanceof Camel) {
+                        System.out.println("Верблюд: " + pet.getName());
+                    }
+                    break;
+                case 5:
+                    if (pet instanceof Horse) {
+                        System.out.println("Лошадь: " + pet.getName());
+                    }
+                    break;
+                case 6:
+                    if (pet instanceof Donkey) {
+                        System.out.println("Ослик: " + pet.getName());
+                    }
+                    break;
+                default:
+                    System.out.println("Некорректный выбор.");
+                    break;
             }
+            System.out.println("petID: " + pet.getId() + " " + "Имя: " + pet.getName());
         }
    }
 
