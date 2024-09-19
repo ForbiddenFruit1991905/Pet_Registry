@@ -48,22 +48,23 @@ public class ConsoleUI implements View {
             int choice = scanner.nextInt();
             switch (choice) {
                 case 1:
-                    pets.add(new Cat(name, null, null, null));
+                    pets.add(new Cat(name, PetType.getType(1),null, null, null));
+                    pets.getClass();
                     break;
                 case 2:
-                    pets.add(new Dog(name, null, null, null));
+                    pets.add(new Dog(name, PetType.getType(2),null, null, null));
                     break;
                 case 3:
-                    pets.add(new Hamster(name, null, null, null));
+                    pets.add(new Hamster(name, PetType.getType(3),null, null, null));
                     break;
                 case 4:
-                    pets.add(new Horse(name, null, null, null));
+                    pets.add(new Horse(name, PetType.getType(4),null, null, null));
                     break;
                 case 5:
-                    pets.add(new Camel(name, null, null, null));
+                    pets.add(new Camel(name, PetType.getType(5),null, null, null));
                     break;
                 case 6:
-                    pets.add(new Donkey(name, null, null, null));
+                    pets.add(new Donkey(name, PetType.getType(6),null, null, null));
                     break;
                 default:
                     System.out.println("Некорректный выбор.");
@@ -80,9 +81,9 @@ public class ConsoleUI implements View {
             String[] commandsArray = input.split(", ");
             ArrayList<String> commandsList = new ArrayList<>(Arrays.asList(commandsArray));
             System.out.println("Список команд: " + commandsList);
-            System.out.println("Запись внесена ---> " + "\n" + "имя: " + name + "\n" + "Дата рождения: " + date.format(dtf) + "\n" + "Список команд: " + commandsList);
+            System.out.println("Запись внесена ---> " + "\n" + "имя: " + name + "\n" + "Класс животного: " + PetType.getType(choice) + "\n" + "Дата рождения: " + date.format(dtf) + "\n" + "Список команд: " + commandsList);
             System.out.println();
-            presenter.addNewPet(name, date, null, commandsList);
+            presenter.addNewPet(name, PetType.getType(choice), date, null, commandsList);
         } catch (InputMismatchException e) {
             System.out.println("Ошибка: введено некорректное значение. Пожалуйста, введите целое число.");
         }

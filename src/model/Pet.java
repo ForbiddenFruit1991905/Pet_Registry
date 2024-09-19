@@ -11,20 +11,27 @@ import java.util.List;
 public class Pet implements IRepository {
     private int id;
     private String name;
+    private final PetType type;
     private LocalDate birthday;
     private LocalDate deathDate;
     private ArrayList<String> commands;
 
-    public Pet(int id, String name, LocalDate birthday, LocalDate deathDate, ArrayList<String> commands) {
+    public Pet(int id, String name, PetType type, LocalDate birthday, LocalDate deathDate, ArrayList<String> commands) {
         this.id = id;
         this.name = name;
+        this.type = type;
         this.birthday = birthday;
         this.deathDate = deathDate;
         this.commands = commands;
     }
 
-    public Pet(String name, LocalDate birthday, LocalDate deathDate, ArrayList<String> commands) {
+    public PetType getType() {
+        return type;
+    }
+
+    public Pet(String name, PetType type, LocalDate birthday, LocalDate deathDate, ArrayList<String> commands) {
         this.name = name;
+        this.type = type;
         this.birthday = birthday;
         this.deathDate = deathDate;
         this.commands = commands;
@@ -92,8 +99,8 @@ public class Pet implements IRepository {
 
     @Override
     public String toString() {
-        return String.format("ID: %d\nИмя: %s\nДень рождения: %s\nКомманды: %s",
-                getId(), getName(), getBirthday(), getCommands());
+        return String.format("ID: %d\nКласс животного: %s\n Имя: %s\nДень рождения: %s\nКомманды: %s",
+                getId(), getType(), getName(), getBirthday(), getCommands());
     }
 
     public int getPetAge(){

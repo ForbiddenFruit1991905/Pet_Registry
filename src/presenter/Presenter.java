@@ -1,6 +1,7 @@
 package presenter;
 
 import model.Pet;
+import model.PetType;
 import model.services.exceptions.PetCreationException;
 import model.services.PetRepository;
 import view.View;
@@ -17,8 +18,8 @@ public class Presenter {
     }
 
     //    Добавить новое животное в реестр
-    public String addNewPet(String name, LocalDate birthday, LocalDate deathDate, ArrayList commands) throws PetCreationException {
-        petRepository.addNewPet(name, birthday, deathDate, commands);
+    public String addNewPet(String name, PetType type, LocalDate birthday, LocalDate deathDate, ArrayList commands) throws PetCreationException {
+        petRepository.addNewPet(name, type, birthday, deathDate, commands);
         return name;
     }
 

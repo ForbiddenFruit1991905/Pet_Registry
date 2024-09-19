@@ -29,11 +29,11 @@ public class PetRepository<T extends IRepository<T>> implements Iterable<T> {
     }
 
     // Добавление зверюшки
-    public T addNewPet(String name, LocalDate birthday, LocalDate deathDate, ArrayList<String> commands) throws PetCreationException {
+    public T addNewPet(String name, PetType type, LocalDate birthday, LocalDate deathDate, ArrayList<String> commands) throws PetCreationException {
         if (name == null || birthday == null || commands.isEmpty()) {
             throw new PetCreationException("Недостаточно информации для создания нового питомца");
         }
-        Pet pet = petBuilder.build(name, birthday, deathDate, commands);
+        Pet pet = petBuilder.build(name, type, birthday, deathDate, commands);
         pets.add((T) pet);
         return (T) pet;
     }
@@ -58,26 +58,22 @@ public class PetRepository<T extends IRepository<T>> implements Iterable<T> {
             if (choice == 1 && pet instanceof Cat) {
                 System.out.println("Кошка: " + pet.getName());
                 System.out.println(pet.getClass());
+            } else if (choice == 2 && pet instanceof Dog) {
+                System.out.println("Собака: " + pet.getName());
+            } else if (choice == 3 && pet instanceof Hamster) {
+                System.out.println("Хомяк: " + pet.getName());
+            } else if (choice == 4 && pet instanceof Camel) {
+                System.out.println("Верблюд: " + pet.getName());
+            } else if (choice == 5 && pet instanceof Horse) {
+                System.out.println("Лошадь: " + pet.getName());
+            } else if (choice == 6 && pet instanceof Donkey) {
+                System.out.println("Ослик: " + pet.getName());
             }
-//            else if (choice == 2 && pet instanceof Dog) {
-//                System.out.println("Собака: " + pet.getName());
-//            } else if (choice == 3 && pet instanceof Hamster) {
-//                System.out.println("Хомяк: " + pet.getName());
-//            } else if (choice == 4 && pet instanceof Camel) {
-//                System.out.println("Верблюд: " + pet.getName());
-//            } else if (choice == 5 && pet instanceof Horse) {
-//                System.out.println("Лошадь: " + pet.getName());
-//            } else if (choice == 6 && pet instanceof Donkey) {
-//                System.out.println("Ослик: " + pet.getName());
-//            }
-
         }
-
    }
 
     // Список всех записей
     public String getPetList() {
-
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("Список животных:\n");
         for (T pet : pets) {
