@@ -151,22 +151,21 @@
 5. Выложить историю команд в терминале ubuntu.
 [UbuntuHistory](https://github.com/ForbiddenFruit1991905/Pet_Registry/blob/main/src/UbuntuHistory.md)
 6. Нарисовать [диаграмму](https://github.com/ForbiddenFruit1991905/Pet_Registry/blob/main/src/%D0%94%D0%B8%D0%B0%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B0.drawio), в которой есть класс родительский класс, домашние животные и вьючные животные, в составы которых в случае домашних животных войдут классы: собаки, кошки, хомяки, а в класс вьючные животные войдут: Лошади, верблюды и ослы). 
-См.рис.[Диаграмма](https://github.com/ForbiddenFruit1991905/Pet_Registry/blob/main/src/%D0%97%D0%B0%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5_6_%D0%94%D0%B8%D0%B0%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B0.JPG)
-   
+См.рис.[Диаграмма](https://github.com/ForbiddenFruit1991905/Pet_Registry/blob/main/src/%D0%97%D0%B0%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5_6_%D0%94%D0%B8%D0%B0%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B0.JPG)   
 
   ## **C 7 по 12** задания см.[human_friends.sql](https://github.com/ForbiddenFruit1991905/Pet_Registry/blob/main/src/human_friends.sql)
 
 13. Создать класс с Инкапсуляцией методов и наследованием по диаграмме. См.[здесь.](https://github.com/ForbiddenFruit1991905/Pet_Registry/tree/main/src/model)
 14. Написать программу, имитирующую работу реестра домашних животных.
+См.[здесь.](https://github.com/ForbiddenFruit1991905/Pet_Registry/tree/main/src)
    ```
     В программе должен быть реализован следующий функционал:
     14.1 Завести новое животное
     14.2 определять животное в правильный класс
     14.3 увидеть список команд, которое выполняет животное
     14.4 обучить животное новым командам
-    14.5 Реализовать навигацию по меню
+    14.5 Реализовать навигацию по меню      
    ```
-См.[здесь.](https://github.com/ForbiddenFruit1991905/Pet_Registry/tree/main/src)
 15. Создайте [класс Счетчик](https://github.com/ForbiddenFruit1991905/Pet_Registry/blob/main/src/model/iterator/PetIterator.java), у которого есть метод add(), увеличивающий̆
     значение внутренней int переменной̆на 1 при нажатие “Завести новое
     животное”. Сделайте так, чтобы с объектом такого типа можно было работать в блоке try-with-resources. Нужно бросить исключение, если работа с объектом типа счетчик была не в ресурсном try и/или ресурс остался открыт. Значение считать в ресурсе try, если при заведения животного заполнены все поля.
