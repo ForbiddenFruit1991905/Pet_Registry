@@ -63,9 +63,21 @@ public class Pet implements IRepository {
         return commands;
     }
 
+    public boolean getCommand(String command) {
+        if (!commands.contains(command)){
+            commands.add(String.valueOf(command));
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public String learnNewCommand(String newCommand) {
+        return "";
+    }
+
     @Override
     public String getInfo() {
-//        return "";
         for (int i = 1; i < commands.size(); i++) {
             commands.get(i);
         }

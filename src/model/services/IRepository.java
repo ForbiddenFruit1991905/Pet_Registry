@@ -14,6 +14,8 @@ public interface IRepository<T> extends Comparable{
     List<T> getAllPet();
     Pet findById(int idPet);
     ArrayList<String> getCommands();
+    boolean getCommand(String command);
+    String learnNewCommand(String newCommand);
     String getInfo();
     T getById(int id);
     T addNewPet(T pet);

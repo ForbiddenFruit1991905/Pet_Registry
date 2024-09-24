@@ -100,7 +100,7 @@ public class ConsoleUI implements View {
                 System.out.println("Укажите новую команду: ");
                 String newCommand = scanner.nextLine();
             if (!newCommand.isEmpty()) {
-            presenter.learnNewCommand(newCommand);
+            presenter.learnNewCommand(petId, newCommand);
                 System.out.println("Команда '" + newCommand + "' успешно добавлена и выучена для ID" + petId);
                 return;
             } else {

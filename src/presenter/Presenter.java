@@ -34,8 +34,8 @@ public class Presenter {
     }
 
     // Выучить новую команду
-    public void learnNewCommand(String newCommand) {
-        petRepository.learnNewCommand(newCommand);
+    public void learnNewCommand(int petId, String newCommand) {
+        petRepository.learnNewCommand(petId, newCommand);
     }
 
     //    Удаление записи
