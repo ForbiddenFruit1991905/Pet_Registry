@@ -90,7 +90,6 @@ public class ConsoleUI implements View {
         }
     }
 
-    //TODO нет реализации learnNewCommand (не добавляет/не запоминает)
     public void learnNewCommand() {
         System.out.println("Укажите ID животного, для которого хотите добавить новую команду:");
         int petId = scanner.nextInt();
@@ -101,7 +100,7 @@ public class ConsoleUI implements View {
                 String newCommand = scanner.nextLine();
             if (!newCommand.isEmpty()) {
             presenter.learnNewCommand(petId, newCommand);
-                System.out.println("Команда '" + newCommand + "' успешно добавлена и выучена для ID" + petId);
+//                System.out.println("Команда '" + newCommand + "' успешно добавлена и выучена для ID" + petId);
                 return;
             } else {
                 System.out.println("Ошибка: команда не может быть пустой");
@@ -109,7 +108,7 @@ public class ConsoleUI implements View {
         }
     }
 
-    //TODO нет реализации
+    //TODO не работает
     public void checkClass() {
         presenter.checkClass();
     }
@@ -122,8 +121,7 @@ public class ConsoleUI implements View {
         System.out.println("Запись о животном удалена из реестра");
         presenter.getPetList();
     }
-
-    //TODO проверить на список обновленных команд 
+    
     public void findById() {
         System.out.println("Введите ID: ");
         String strID  = scanner.nextLine();
@@ -131,7 +129,6 @@ public class ConsoleUI implements View {
         System.out.println(presenter.findById(idPet));
     }
 
-    // TODO доработать exception
     public void getAllPet() {
         presenter.getPetList();
     }
