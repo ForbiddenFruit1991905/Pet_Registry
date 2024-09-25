@@ -1,6 +1,7 @@
 package model.services;
 
 import model.Pet;
+import model.PetType;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -15,6 +16,7 @@ public interface IRepository<T> extends Comparable{
     Pet findById(int idPet);
     ArrayList<String> getCommands();
     boolean getCommand(String command);
+    PetType checkClass();
     String learnNewCommand(String newCommand);
     String getInfo();
     T getById(int id);

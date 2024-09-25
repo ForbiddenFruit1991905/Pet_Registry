@@ -72,6 +72,11 @@ public class Pet implements IRepository {
     }
 
     @Override
+    public PetType checkClass() {
+        return type;
+    }
+
+    @Override
     public String learnNewCommand(String newCommand) {
         return "";
     }
