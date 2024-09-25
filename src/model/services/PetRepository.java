@@ -120,9 +120,9 @@ public class PetRepository<T extends IRepository<T>> implements Iterable<T> {
 
     // Добавить новую команду, выполняемую питомцем
     public void learnNewCommand(int petId, String newCommand) {
-        try {
             Pet pet = (Pet) findById(petId);
             ArrayList allCommands = new ArrayList<>();
+        try {
             if (pet != null) {
                 allCommands.add(pet.getCommand(newCommand));
                 System.out.println("Команда '" + newCommand + "' успешно добавлена для ID" + petId);

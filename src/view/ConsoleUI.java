@@ -91,21 +91,76 @@ public class ConsoleUI implements View {
     }
 
     public void learnNewCommand() {
+//        System.out.println("Укажите ID животного, для которого хотите добавить новую команду:");
+//        int petId = scanner.nextInt();
+//        scanner.nextLine();
+//        for (Pet pet : pets) {
+//            pet.findById(petId);
+//            System.out.println("Укажите новую команду: ");
+//            String newCommand = scanner.nextLine();
+//            if (!newCommand.isEmpty()) {
+//            presenter.learnNewCommand(petId, newCommand);
+////                System.out.println("Команда '" + newCommand + "' успешно добавлена и выучена для ID" + petId);
+//                return;
+//            } else {
+//                System.out.println("Ошибка: команда не может быть пустой");
+//            }
+//        }
+
+
+//        System.out.println("Укажите ID животного, для которого хотите добавить новую команду:");
+//        try {
+//            int petId = scanner.nextInt();
+//            scanner.nextLine();
+//            for (Pet pet : pets) {
+//                if(pet.getId() == petId) {
+//                pet.findById(petId);
+//                } else {
+//                    System.out.println("Ошибка: такого ID нет");
+//                }
+//                System.out.println("Укажите новую команду: ");
+//                String newCommand = scanner.nextLine();
+//                if (!newCommand.isEmpty()) {
+//                    presenter.learnNewCommand(petId, newCommand);
+////                    System.out.println("Команда '" + newCommand + "' успешно добавлена и выучена для ID" + petId);
+//                    return;
+//                }
+//            }
+//
+//        } catch (NumberFormatException e) {
+//            System.out.println("Ошибка: неправильный формат ввода ID");
+//        } catch (InputMismatchException e) {
+//            System.out.println("Ошибка: такого ID нет");
+//        }
+
         System.out.println("Укажите ID животного, для которого хотите добавить новую команду:");
-        int petId = scanner.nextInt();
-        scanner.nextLine();
-        for (Pet pet : pets) {
-            pet.findById(petId);
-                System.out.println("Укажите новую команду: ");
-                String newCommand = scanner.nextLine();
-            if (!newCommand.isEmpty()) {
-            presenter.learnNewCommand(petId, newCommand);
-//                System.out.println("Команда '" + newCommand + "' успешно добавлена и выучена для ID" + petId);
-                return;
-            } else {
-                System.out.println("Ошибка: команда не может быть пустой");
+        try {
+            int petId = scanner.nextInt();
+            scanner.nextLine();
+            boolean petFound = false;
+
+            for (Pet pet : pets) {
+                if (pet.getId() == petId) {
+                    petFound = true;
+                    pet.findById(petId);
+                    System.out.println("Укажите новую команду: ");
+                    String newCommand = scanner.nextLine();
+                    if (!newCommand.isEmpty()) {
+                        presenter.learnNewCommand(petId, newCommand);
+                        System.out.println("Команда '" + newCommand + "' успешно добавлена и выучена для ID " + petId);
+                        return;
+                    }
+                }
             }
+
+            if (!petFound) {
+                System.out.println("Ошибка: питомец с указанным ID не найден.");
+            }
+
+        } catch (InputMismatchException e) {
+            System.out.println("Ошибка: неправильный формат ввода ID.");
         }
+
     }
 
     //TODO не работает
