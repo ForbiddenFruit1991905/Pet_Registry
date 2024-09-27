@@ -53,47 +53,50 @@ public class PetRepository<T extends IRepository<T>> implements Iterable<T> {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Выберите вид животного: 1 - кот, 2 - собака, 3 - хомяк, 4 - лошадь, 5 - верблюд, 6 - ослик");
         int choice = scanner.nextInt();
+        PetType selectedType = PetType.getType(choice);
+
         System.out.println("Список животных выбранного типа:");
 
         for (T pet : pets) {
-            switch (choice) {
-                case 1:
+            switch (selectedType) {
+                case Cat:
                     if (pet instanceof Cat) {
-                        System.out.println("Кошка: " + pet.getName());
+                        System.out.println("Кошка: " + pet.getName() + ", petID: " + pet.getId());
                     }
                     break;
-                case 2:
+                case Dog:
                     if (pet instanceof Dog) {
-                        System.out.println("Собака: " + pet.getName());
+                        System.out.println("Собака: " + pet.getName() + ", petID: " + pet.getId());
                     }
                     break;
-                case 3:
+                case Hamster:
                     if (pet instanceof Hamster) {
-                        System.out.println("Хомяк: " + pet.getName());
+                        System.out.println("Хомяк: " + pet.getName() + ", petID: " + pet.getId());
                     }
                     break;
-                case 4:
+                case Camel:
                     if (pet instanceof Camel) {
-                        System.out.println("Верблюд: " + pet.getName());
+                        System.out.println("Верблюд: " + pet.getName() + ", petID: " + pet.getId());
                     }
                     break;
-                case 5:
+                case Horse:
                     if (pet instanceof Horse) {
-                        System.out.println("Лошадь: " + pet.getName());
+                        System.out.println("Лошадь: " + pet.getName() + ", petID: " + pet.getId());
                     }
                     break;
-                case 6:
+                case Donkey:
                     if (pet instanceof Donkey) {
-                        System.out.println("Ослик: " + pet.getName());
+                        System.out.println("Ослик: " + pet.getName() + ", petID: " + pet.getId());
                     }
                     break;
                 default:
                     System.out.println("Некорректный выбор.");
-                    break;
+                    return;
             }
-            System.out.println("petID: " + pet.getId() + " " + "Имя: " + pet.getName());
+            //            System.out.println("petID: " + pet.getId() + " " + "Имя: " + pet.getName());
         }
-   }
+    }
+
 
     // Список всех записей
     public String getPetList() {
